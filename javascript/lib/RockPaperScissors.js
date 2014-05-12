@@ -27,7 +27,7 @@ function Player(name) {
 }
 
 Player.prototype.picks = function(pick) {
-	this.pick = pick
+	this.pick = pick;
 };
 
 
@@ -37,20 +37,29 @@ function Game(player1, player2) {
 }
 
 Game.prototype.winner = function() {
-// console.log(PAIRS[this.player1.pick][this.player2.pick])
 	if (this.same_pick()){
-		return null
+		return null;
 	}
-	// else if	((PAIRS[this.player1.pick]['beats'][0] === this.player2.pick) || (PAIRS[this.player1.pick]['beats'][1] === this.player2.pick)) {
-	else if	(PAIRS[this.player1.pick][this.player2.pick])  {
-		return this.player1}
+	else if	(PAIRS[this.player1.pick][this.player2.pick])  {	
+		winner = this.player1;
+		loser = this.player2;
+		return this.player1 }
 	else {
-	 	return this.player2
-	 }; 
+		winner = this.player2;
+		loser = this.player1;
+	 	return this.player2;
+	 } 
 };
 
 Game.prototype.same_pick = function() {
-	return this.player1.pick === this.player2.pick
+	return this.player1.pick === this.player2.pick;
+};
+
+Game.prototype.result = function() {
+	console.log(this.player1)
+	console.log(winner.name+" playing "+winner.pick+" "+PAIRS[winner.pick][loser.pick]+" "+loser.name+" playing "+loser.pick);
+	return winner.name+" playing "+winner.pick+" "+PAIRS[winner.pick][loser.pick]+" "+loser.name+" playing "+loser.pick;
+
 };
 
 

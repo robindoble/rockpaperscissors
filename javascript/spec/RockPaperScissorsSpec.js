@@ -149,14 +149,7 @@ describe("Rock-Paper-Scissors", function() {
 
     });
 
-
-
-
-
-
 // ######### 
-
-
 
   });
 
@@ -180,4 +173,38 @@ describe("Rock-Paper-Scissors", function() {
 
   });
 
+  describe('result', function(){
+
+    it('should return a message with winner and losers name and strategy', function(){
+      player1.picks('lizard');
+      player2.picks('spock');
+      game.winner();
+      expect(game.result()).toBe('Robin playing lizard poisons Will playing spock');
+    });
+
+     it('should return a message with winner and losers name and strategy', function(){
+      player1.picks('lizard');
+      player2.picks('scissors');
+      game.winner();
+      expect(game.result()).toBe('Will playing scissors decapitates Robin playing lizard');
+    });
+
+  });
+
+
+
+
+
+
 });
+
+
+
+
+
+
+
+
+
+
+
