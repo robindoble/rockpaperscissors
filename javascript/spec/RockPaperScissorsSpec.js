@@ -22,76 +22,76 @@ describe("Rock-Paper-Scissors", function() {
 
       });
 
-      // it('should lose to paper', function() {
+      it('should lose to paper', function() {
 
-      //   player1.picks('rock');
-      //   player2.picks('paper');
-      //   expect(game.winner()).toBe(player2);
+        player1.picks('rock');
+        player2.picks('paper');
+        expect(game.winner()).toBe(player2);
 
-      // });
+      });
 
     });
 
-  //   describe('paper', function() {
+    describe('paper', function() {
 
-  //     it('should beat rock', function() {
+      it('should beat rock', function() {
 
-  //       player1.picks('paper');
-  //       player2.picks('rock');
-  //       expect(game.winner()).toBe(player1);
+        player1.picks('paper');
+        player2.picks('rock');
+        expect(game.winner()).toBe(player1);
 
-  //     });
+      });
 
-  //     it('should lose to scissors', function() {
+      it('should lose to scissors', function() {
 
-  //       player1.picks('paper');
-  //       player2.picks('scissors');
-  //       expect(game.winner()).toBe(player2);
+        player1.picks('paper');
+        player2.picks('scissors');
+        expect(game.winner()).toBe(player2);
 
-  //     });
+      });
 
-    // });
+    });
 
-  //   describe('scissors', function() {
+    describe('scissors', function() {
 
-  //     it('should beat paper', function() {
+      it('should beat paper', function() {
 
-  //       player1.picks('scissors');
-  //       player2.picks('paper');
-  //       expect(game.winner()).toBe(player1);
+        player1.picks('scissors');
+        player2.picks('paper');
+        expect(game.winner()).toBe(player1);
 
-  //     });
+      });
 
-  //     it('should lose to rock', function() {
+      it('should lose to rock', function() {
 
-  //       player1.picks('scissors');
-  //       player2.picks('rock');
-  //       expect(game.winner()).toBe(player2);
+        player1.picks('scissors');
+        player2.picks('rock');
+        expect(game.winner()).toBe(player2);
 
-  //     });
+      });
 
-    // });
+    });
 
   });
 
-  // describe('draws', function() {
+  describe('draws', function() {
 
-  //   describe('any identical picks', function() {
+    describe('any identical picks', function() {
 
-  //     it('should result in no winner', function() {
+      it('should result in no winner', function() {
 
-  //       var drawGameResults = ['rock', 'paper', 'scissors'].map(function(x) {
-  //         player1.picks(x);
-  //         player2.picks(x);
-  //         return game.winner();
-  //       });
+        var drawGameResults = ['rock', 'paper', 'scissors'].map(function(x) {
+          player1.picks(x);
+          player2.picks(x);
+          return game.winner();
+        });
 
-  //       expect(drawGameResults).toEqual([null, null, null]);
+        expect(drawGameResults).toEqual([null, null, null]);
 
-  //     });
+      });
 
-  //   });
+    });
 
-  // });
+  });
 
 });

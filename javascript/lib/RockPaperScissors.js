@@ -19,7 +19,9 @@ Player.prototype.picks = function(pick) {
 };
 
 Game.prototype.winner = function() {
-	if (PAIRS[this.player1.pick]['beats'] === this.player2.pick) {
+	if (this.player1.pick === this.player2.pick) {
+		return null	}
+	else if	(PAIRS[this.player1.pick]['beats'] === this.player2.pick) {
 		return this.player1}
 	else {
 	 	return this.player2}; 
