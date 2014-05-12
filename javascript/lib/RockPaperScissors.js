@@ -19,11 +19,17 @@ Player.prototype.picks = function(pick) {
 };
 
 Game.prototype.winner = function() {
-	if (this.player1.pick === this.player2.pick) {
-		return null	}
+	if (this.same_pick()){
+		return null
+	}
 	else if	(PAIRS[this.player1.pick]['beats'] === this.player2.pick) {
 		return this.player1}
 	else {
 	 	return this.player2}; 
 };
+
+Game.prototype.same_pick = function() {
+	return this.player1.pick === this.player2.pick
+};
+
 
