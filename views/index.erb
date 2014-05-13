@@ -1,0 +1,101 @@
+<html>
+	<head>
+		
+		<style>
+
+    .container {
+	    margin: 100px auto ;
+			width: 1100px;
+			font-family: 'Helvetica Neue';
+			/*border-style: solid;*/
+    }
+
+    .choices img {
+    	/*border-style: solid;*/
+    	padding: 0px;
+      width: 14%;
+      margin-right: 2.5%;
+      margin-left: 2.5%;
+      vertical-align: middle;
+      cursor: pointer;
+      opacity: 0.8;
+      transition: 0.1s all ease;
+    }
+
+    .choices img:hover {
+      opacity: 1;
+    }
+
+    h2 {
+      text-transform: capitalize;
+      text-align: center;
+    }
+
+    #results {
+    	/*border-style: solid;*/
+    	margin-top: 30px;
+      list-style: none;
+    }
+
+    #results li {
+    	/*border-style: solid;*/
+    	width: 90%;
+    	background: #999;
+      color: #fff;
+      font-size: 20px;
+      border-radius: 8px;
+      /*margin: auto;*/
+      margin-bottom: 10px;
+    	padding: 5px;
+    	text-align: center;
+      
+    }
+    </style>	
+	</head>
+
+
+
+
+	<body>
+
+		<div class='container'>
+			<h2> WELCOME TO ROCK SPOCK PAPER SCISSORS and... KILLER LIZARD </h2>
+				<div class='choices'>
+					<img src='images/rock.png' data-pick='rock'>
+					<img src='images/spock_cartoon.png' data-pick='spock'>
+					<img src='images/paper.png' data-pick='paper'>
+					<img src='images/lizard.png' data-pick='lizard'>
+					<img src='images/scissors.png' data-pick='scissors'>
+				</div>
+				<ul id='results'>	
+				</ul>
+		</div>
+
+		<script src='./lib/player.js'></script>
+		<script src='./lib/game.js'></script>
+		<script src='http://code.jquery.com/jquery-2.1.1.min.js'></script>
+		
+		<script>
+			$(document).ready(function(){
+				var robin	= new Player('Robin');
+				var computer = new Player('..a Computer that promises to play fairly');
+				var game = new Game(robin,computer)
+
+			
+					$('.choices img').on('click', function(){
+						robin.picks($(this).data('pick'));
+						computer.picks(game.comp_choice());
+						// alert($(this).data('pick'));
+						// console.log($(this).data('pick'));
+						$('<li>' + game.result() + '</li>').fadeIn(1000).prependTo('#results');
+						// $('#results li').css( "background-color", "silver" );
+						$('#results li').slice(5).fadeOut(3000);
+					
+					})	
+				})
+		</script>
+
+	</body>
+
+
+</html>
