@@ -191,6 +191,20 @@ describe("Rock-Paper-Scissors", function() {
 
   });
 
+  describe('computer random choice', function(){
+
+    it('should randomly select a move for the computer', function(){
+      // var array = ['rock','paper,'lizard','spock','scissors']
+      // expect(array.map game.comp_choice
+      player1.picks('lizard');
+      spyOn(game,'comp_choice').andReturn('spock')
+      player2.picks(game.comp_choice());
+      // game.comp_choice()
+      // game.result()
+      expect(game.winner()).toBe(player1);
+    });
+
+  });
 
 
 
