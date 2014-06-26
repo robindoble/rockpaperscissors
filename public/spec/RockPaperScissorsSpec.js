@@ -153,43 +153,43 @@ describe("Rock-Paper-Scissors", function() {
 
   });
 
-//   describe('draws', function() {
+  describe('draws', function() {
 
-//     describe('any identical picks', function() {
+    describe('any identical picks', function() {
 
-//       it('should result in no winner', function() {
+      it('should result in no winner', function() {
 
-//         var drawGameResults = ['rock', 'paper', 'scissors'].map(function(x) {
-//           player1.picks(x);
-//           player2.picks(x);
-//           return game.winner();
-//         });
+        var drawGameResults = ['rock', 'paper', 'scissors'].map(function(x) {
+          player1.picks(x);
+          player2.picks(x);
+          return game.winner();
+        });
 
-//         expect(drawGameResults).toEqual([null, null, null]);
+        expect(drawGameResults).toEqual([null, null, null]);
 
-//       });
+      });
 
-//     });
+    });
 
-//   });
+  });
 
-//   describe('result', function(){
+  describe('result', function(){
 
-//     it('should return a message with winner and losers name and strategy', function(){
-//       player1.picks('lizard');
-//       player2.picks('spock');
-//       game.winner();
-//       expect(game.result()).toBe('Robin playing lizard poisons Will playing spock');
-//     });
+    it('should return a message with winner and losers name and strategy', function(){
+      player1.picks('lizard');
+      player2.picks('spock');
+      game.winner();
+      expect(game.result()).toBe('Robin playing lizard poisons Will playing spock');
+    });
 
-//      it('should return a message with winner and losers name and strategy', function(){
-//       player1.picks('lizard');
-//       player2.picks('scissors');
-//       game.winner();
-//       expect(game.result()).toBe('Will playing scissors decapitates Robin playing lizard');
-//     });
+     it('should return a message with winner and losers name and strategy', function(){
+      player1.picks('lizard');
+      player2.picks('scissors');
+      game.winner();
+      expect(game.result()).toBe('Will playing scissors decapitates Robin playing lizard');
+    });
 
-//   });
+  });
 
 //   describe('computer random choice', function(){
 
