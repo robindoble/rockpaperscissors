@@ -1,10 +1,24 @@
-PICKS = {
-rock: ['scissors','lizard'],
-scissors: ['paper','lizard'],
-paper: ['rock','spock'],
-lizard: ['paper','spock'],
-spock: ['scissors','rock']
-}
+Game.prototype.PAIRS = { 
+
+rock: {
+	scissors: 'smashes',
+	lizard: 'pounds'},
+
+paper: {
+	rock: 'covers',
+	spock: 'disproves'},
+
+scissors: {
+	paper: 'slices',
+	lizard: 'decapitates'},
+
+lizard: {
+	paper: 'munches',
+	spock: 'poisons'},
+
+spock: {
+	scissors: 'crushes',
+	rock: 'crushes'}};
 
 
 function Game(player1,player2) {
@@ -13,11 +27,10 @@ function Game(player1,player2) {
 }
 
 Game.prototype.winner = function() {
-	// console.log(this.player1.pick);
-	if (this.player1.pick === this.player2.pick) {
+	if (this.same_pick()) {
 		return null;
 	}
-	else if ( (PICKS[this.player1.pick][0] === this.player2.pick) || (PICKS[this.player1.pick][1] === this.player2.pick) ) {
+	else if (this.PAIRS[this.player1.pick][this.player2.pick]) {
 		return this.player1;
 	}
 	else {
@@ -25,8 +38,23 @@ Game.prototype.winner = function() {
 	}
 };
 
+Game.prototype.same_pick = function() {
+	return this.player1.pick === this.player2.pick;
+};
 
+Game.prototype.loser = function(){
+	return (this.winner() === this.player1 ? this.player2 : this.player1);
+};
 
-
+Game.prototype.result = function() {
+	if (this.winner()) {
+		message = [this.winner().name,"playing",this.winner().pick,this.PAIRS[this.winner().pick][this.loser().pick],this.loser().name,"playing",this.loser().pick].join(' ');
+	}
+	else {
+		message = 'Draw';
+	}
+	console.log(message);
+	return message;
+};
 
 
