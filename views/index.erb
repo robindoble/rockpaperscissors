@@ -19,11 +19,12 @@
       vertical-align: middle;
       cursor: pointer;
       opacity: 0.8;
-      transition: 0.1s all ease;
+      transition: .4s all ease;
     }
 
     .choices img:hover {
       opacity: 1;
+      margin-right: 4%;
     }
 
     h2 {
@@ -32,28 +33,22 @@
     }
 
     #results {
-    	/*border-style: solid;*/
     	margin-top: 30px;
       list-style: none;
     }
 
     #results li {
-    	/*border-style: solid;*/
     	width: 90%;
     	background: #999;
       color: #fff;
       font-size: 20px;
       border-radius: 8px;
-      /*margin: auto;*/
       margin-bottom: 10px;
     	padding: 5px;
-    	text-align: center;
-      
+    	text-align: center;     
     }
     </style>	
 	</head>
-
-
 
 
 	<body>
@@ -76,23 +71,23 @@
 		<script src='http://code.jquery.com/jquery-2.1.1.min.js'></script>
 		
 		<script>
-			$(document).ready(function(){
-				var robin	= new Player('you');
-				var computer = new Player('..a Computer that promises to play fairly');
-				var game = new Game(robin,computer)
 
-			
-					$('.choices img').on('click', function(){
-						robin.picks($(this).data('pick'));
-						computer.picks(game.comp_choice());
-						// alert($(this).data('pick'));
-						// console.log($(this).data('pick'));
-						$('<li>' + game.result() + '</li>').fadeIn(1000).prependTo('#results');
-						// $('#results li').css( "background-color", "silver" );
-						$('#results li').slice(5).fadeOut(3000);
-					
-					})	
-				})
+			$(document).ready(function(){
+
+					var computer = new Player('Computer');
+					var you = new Player('You');
+					var game = new Game(computer,you);
+
+				$('.choices img').on('click',function(){
+					computer.picks(game.compChoice());
+					you.picks($(this).data('pick'));
+					$('<li>' + game.winningMessage() + '</li>').fadeIn(1000).prependTo('#results');
+					$('#results li').slice(5).fadeOut(3000,function(){
+						$(this).remove();
+					});
+				});
+			});
+
 		</script>
 
 	</body>
